@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 beforeEach(function () {
     // Sem Referer de domínio stateful, o Sanctum não liga a sessão
