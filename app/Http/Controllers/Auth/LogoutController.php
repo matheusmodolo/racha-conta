@@ -19,6 +19,6 @@ class LogoutController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return response()->noContent(); //(204)
+        return response()->noContent(); // (204)
     }
 }

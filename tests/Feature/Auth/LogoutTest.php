@@ -14,7 +14,7 @@ test('encerra a sessão com 204 e a requisição seguinte recebe 401', function 
     // Senha padrão na factory: 'password'
     $this->postJson('/api/login', [
         'email' => $user->email,
-        'password' => 'password'
+        'password' => 'password',
     ])->assertOk();
 
     $this->assertAuthenticatedAs($user);

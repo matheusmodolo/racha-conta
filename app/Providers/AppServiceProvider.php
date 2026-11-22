@@ -23,9 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Password::defaults(fn() => Password::min(8));
+        Password::defaults(fn () => Password::min(8));
 
         // Só IP bloquearia uma rede inteira. Só e-mail deixaria qualquer um travar a conta de outra pessoa.
-        RateLimiter::for('login', fn(Request $r) => Limit::perMinute(5)->by($r->string('email')->lower() . '|' . $r->ip()));
+        RateLimiter::for('login', fn (Request $r) => Limit::perMinute(5)->by($r->string('email')->lower().'|'.$r->ip()));
     }
 }

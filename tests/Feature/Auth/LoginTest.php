@@ -14,7 +14,7 @@ test('autentica com credenciais válidas e devolve 200 com os dados públicos', 
     // Senha padrão na factory: 'password'
     $response = $this->postJson('/api/login', [
         'email' => $user->email,
-        'password' => 'password'
+        'password' => 'password',
     ]);
 
     $response->assertOk()
@@ -29,12 +29,12 @@ test('responde senha errada e e-mail inexistente com o mesmo 422 genérico', fun
 
     $senhaErrada = $this->postJson('/api/login', [
         'email' => $user->email,
-        'password' => 'senha-errada'
+        'password' => 'senha-errada',
     ]);
 
     $emailErrado = $this->postJson('/api/login', [
         'email' => 'errado@email.com',
-        'password' => 'password'
+        'password' => 'password',
     ]);
 
     $senhaErrada->assertUnprocessable()->assertJsonValidationErrors('email');
